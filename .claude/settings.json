@@ -1,29 +1,20 @@
 {
-  "permissionMode": "acceptEdits",
-  "allowedTools": {
-    "bash": {
-      "allowedCommands": [
-        "python3 db/init_db.py",
-        "sqlite3 db/test.db *",
-        "sleep *",
-        "python3 scripts/*.py"
-      ]
-    },
-    "read": {
-      "allowedPaths": [
-        "db/*",
-        "scripts/*",
-        ".claude/*",
-        "CLAUDE.md"
-      ]
-    },
-    "write": {
-      "allowedPaths": [
-        "db/test.db",
-        "output/*",
-        "temp/*"
-      ]
-    }
+  "permissions": {
+    "allow": [
+      "Bash(python3 db/init_db.py)",
+      "Bash(python3 scripts/*.py *)",
+      "Bash(sqlite3 db/test.db *)",
+      "Bash(sleep *)",
+      "Read(db/*)",
+      "Read(scripts/*)",
+      "Read(.claude/*)",
+      "Read(CLAUDE.md)",
+      "Write(db/test.db)",
+      "Write(output/*)",
+      "Write(temp/*)",
+      "Edit(**)",
+      "Glob(**)"
+    ]
   },
   "hooks": {
     "PostToolUse": {
