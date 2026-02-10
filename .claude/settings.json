@@ -1,0 +1,33 @@
+{
+  "permissionMode": "acceptEdits",
+  "allowedTools": {
+    "bash": {
+      "allowedCommands": [
+        "python3 db/init_db.py",
+        "sqlite3 db/test.db *",
+        "sleep *",
+        "python3 scripts/*.py"
+      ]
+    },
+    "read": {
+      "allowedPaths": [
+        "db/*",
+        "scripts/*",
+        ".claude/*",
+        "CLAUDE.md"
+      ]
+    },
+    "write": {
+      "allowedPaths": [
+        "db/test.db",
+        "output/*",
+        "temp/*"
+      ]
+    }
+  },
+  "hooks": {
+    "PostToolUse": {
+      "bash": "python3 scripts/log_usage.py"
+    }
+  }
+}
